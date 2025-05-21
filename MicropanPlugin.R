@@ -22,6 +22,7 @@ panmat <- panMatrix(clst)
 ## Not run:
 # Plotting cluster distribution
 library(ggplot2)
+write.csv(panmat, paste(outputfile, "csv", sep="."))
 tibble(Clusters = as.integer(table(factor(colSums(panmat > 0), levels = 1:nrow(panmat)))),
 Genomes = 1:nrow(panmat)) %>%
 ggplot(aes(x = Genomes, y = Clusters)) +
